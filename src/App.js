@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { fetchPokemons } from './services/fetchPokemons';
+import Pokemon from './components/Pokemon';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class App extends React.Component {
           <ul>
             {pokemons.map(pokemon =>
               <li>
-                <p>{pokemon.name}</p>
+                <Pokemon pokemon={pokemon} />
               </li>
             )}
           </ul>
