@@ -42,7 +42,7 @@ class Pokemon extends React.Component {
          : 
          <div className="pokemon__card">
            <p className="pokemon__name">{poke.name}</p>
-           <p>'isLoading...'</p>
+           <div class="pokemon__loader"></div>
           </div>
         }
       </div>
