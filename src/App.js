@@ -44,7 +44,7 @@ class App extends React.Component {
         </header>
         <main>
           <Search getPokemon={this.getPokemon} findPokemon={findPokemon}/>
-          <Pokemons pokemons={pokemons} />
+          <Pokemons pokemons={pokemons} findPokemon={findPokemon}/>
         </main>
       </div>
     );

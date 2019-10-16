@@ -31,8 +31,8 @@ class Pokemon extends React.Component {
         <p>{pokemon.name}</p>
         <img src={pokemon.sprites.back_shiny} alt={pokemon.name}/>
         <p>{pokemon.id}</p>
-        <ul>{pokemon.types.map(type => 
-          <li>{type.type.name}</li>
+        <ul>{pokemon.types.map((type, index) => 
+          <li key={index}>{type.type.name}</li>
         )}</ul>
         </div>
          : 
