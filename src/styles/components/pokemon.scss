@@ -2,27 +2,34 @@
 
 .pokemon {
   align-items: center;
-  border: solid 2px $red;
-  border-radius: 10px;
+  border: solid 1px $dark;
+  border-radius: 4px;
   box-shadow: 1px 1px 5px $light;
   display:flex;
   justify-content: center;
   height: 100%;
-  padding: 22px;
   width: 100%;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 
   &__image-container {
     align-items: center;
-    border: 2px solid $green;
-    border-radius: 10px;
     display:flex;
     justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 22px;
+    position:relative;
+    z-index:1;
   }
 
   &__number {
-    border: 2px solid $green;
-    margin: 6px;
-    padding: 6px;
+    background-color: rgba($white, 0.6);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left:0;
   }
 
   &__name {
@@ -33,17 +40,100 @@
   } 
 
   &__types {
+    bottom: 0px;
     display: flex;
     list-style: none;
-    padding: 12px;
+    left:0;
+    position: absolute;
+    top: 0;
+    right: 0;;
   }
 
   &__type {
-    border: 1px solid $orange;
-    border-radius: 10px;
+    color: $white;
+    flex-grow: 1;
     font-size: 16px;
-    margin-right: 12px;
     padding: 6px;
+
+    &--normal {
+      background-color: $c-normal;
+    }
+
+    &--fighting {
+      background-color: $c-fighting;
+    }
+
+    &--flying {
+      background-color: $c-flying;
+    }
+
+    &--poison {
+      background-color: $c-poison;
+    }
+
+    &--ground {
+      background-color: $c-ground;
+    }
+
+    &--rock {
+      background-color: $c-rock;
+    }
+
+    &--bug {
+      background-color: $c-bug;
+    }
+
+    &--ghost {
+      background-color: $c-ghost;
+    }
+
+    &--steel {
+      background-color: $c-steel;
+    }
+
+    &--fire {
+      background-color: $c-fire;
+    }
+
+    &--water {
+      background-color: $c-water;
+    }
+
+    &--grass {
+      background-color: $c-grass;
+    }
+
+    &--electric {
+      background-color: $c-electric;
+    }
+
+    &--psychic {
+      background-color: $c-psychic;
+    }
+
+    &--ice {
+      background-color: $c-ice;
+    }
+
+    &--dragon {
+      background-color: $c-dragon;
+    }
+
+    &--dark {
+      background-color: $c-dark;
+    }
+
+    &--fairy {
+      background-color: $c-fairy;
+    }
+
+    &--unknown {
+      background-color: $c-unknown;
+    }
+
+    &--shadow {
+      background-color: $c-shadow;
+    }
   }
 
   &__loader {
@@ -51,6 +141,7 @@
     border: 12px solid $orange; 
     border-top: 12px solid $blue-light; 
     border-radius: 50%;
+    display: inline-block;
     height: 75px;
     width: 75px;
 

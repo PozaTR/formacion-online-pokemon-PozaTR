@@ -28,22 +28,22 @@ class Pokemon extends React.Component {
     const { pokemon: poke } = this.props;
     return(
       <div className="pokemon">
-        { !isLoading ? 
-        <div className="pokemon__card">
-        <div className="pokemon__image-container" >
-        <img className="pokemon__image" src={pokemon.sprites.back_shiny} alt={pokemon.name}/>
-        <p className="pokemon__number" >ID/{pokemon.id}</p>
-        </div>
-        <p className="pokemon__name">{pokemon.name}</p>
-        <ul className="pokemon__types">{pokemon.types.map((type, index) => 
-          <li className="pokemon__type" key={index}>{type.type.name}</li>
-        )}</ul>
-        </div>
-         : 
-         <div className="pokemon__card">
-           <p className="pokemon__name">{poke.name}</p>
-           <div class="pokemon__loader"></div>
-          </div>
+        { !isLoading
+          ? <React.Fragment>
+              <ul className="pokemon__types">{pokemon.types.map((type, index) => 
+                <li className={`pokemon__type pokemon__type--${type.type.name}`} key={index}>{type.type.name}</li>
+              )}
+              </ul>
+              <div className="pokemon__image-container" >
+                <img className="pokemon__image" src={pokemon.sprites.front_shiny} alt={pokemon.name}/>
+                <p className="pokemon__number" >ID/{pokemon.id}</p>
+                <p className="pokemon__name">{pokemon.name}</p>
+              </div>
+            </React.Fragment> 
+          : <React.Fragment>
+              <p className="pokemon__name">{poke.name}</p>
+              <div class="pokemon__loader"></div>
+            </React.Fragment>
         }
       </div>
     )

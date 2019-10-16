@@ -1,8 +1,32 @@
 //colours
+$white: #F2F2F2;
 $light: #afafaf;
+$dark: #313131;
 $green: #4dad5b;
+$yellow: #e6bc2f;
 $orange: #EE6B2F;
 $red: #E3350D;
 $blue-light: #30A7D7;
 $blue-dark: #1B53BA;
+$purple: #b97fc9;
 
+$c-normal: mix($light, $dark, 50%);
+$c-fighting: mix($orange, $red, 50%);
+$c-flying: mix($blue-light, $blue-dark, 50%);
+$c-poison: $purple;
+$c-ground: mix($red, $dark, 50%);
+$c-rock: mix(mix($red, $dark, 50%), $orange, 50%);
+$c-bug: darken(mix($red, $dark, 50%), 10);
+$c-ghost: mix($blue-light, $purple, 50%);
+$c-steel: mix($blue-light, $light, 50%);
+$c-fire: $red;
+$c-water: $blue-light;
+$c-grass: $green;
+$c-electric: $yellow;
+$c-psychic: desaturate($yellow, 10);
+$c-ice: lighten($blue-light, 3);
+$c-dragon: $orange;
+$c-dark: $dark;
+$c-fairy: mix($orange, $yellow, 50%);
+$c-unknown: $light;
+$c-shadow: $light;
