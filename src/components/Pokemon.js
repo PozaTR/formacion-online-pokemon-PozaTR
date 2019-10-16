@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchPokemon } from '../services/fetchPokemon';
+import PropTypes from 'prop-types';
 
 class Pokemon extends React.Component {
   constructor(props) {
@@ -25,25 +26,29 @@ class Pokemon extends React.Component {
     const { pokemon, isLoading } = this.state;
     const { pokemon: poke } = this.props;
     return(
-      <div>
+      <div className="pokemon">
         { !isLoading ? 
-        <div>
-        <p>{pokemon.name}</p>
-        <img src={pokemon.sprites.back_shiny} alt={pokemon.name}/>
-        <p>{pokemon.id}</p>
-        <ul>{pokemon.types.map((type, index) => 
-          <li key={index}>{type.type.name}</li>
+        <div className="pokemon__card">
+        <p className="pokemon__name">{pokemon.name}</p>
+        <img className="pokemon__image" src={pokemon.sprites.back_shiny} alt={pokemon.name}/>
+        <p className="pokemon__number" >{pokemon.id}</p>
+        <ul className="pokemon__types">{pokemon.types.map((type, index) => 
+          <li className="pokemon__type" key={index}>{type.type.name}</li>
         )}</ul>
         </div>
          : 
-         <div>
-           <p>{poke.name}</p>
+         <div className="pokemon__card">
+           <p className="pokemon__name">{poke.name}</p>
            <p>'isLoading...'</p>
           </div>
         }
       </div>
     )
   }
+}
+
+Pokemon.propTypes = {
+  pokemon: PropTypes.object.isRequired
 }
 
 export default Pokemon; 
