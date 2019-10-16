@@ -1,0 +1,16 @@
+.header {
+  align-items: center;
+  display:flex;
+  justify-content: center;
+  padding: 24px;
+
+  &__title {
+    height: 1px;
+    overflow: hidden;
+  }
+  
+  &__logo {
+    max-width:70vw;
+    width: 400px;
+  }
+}

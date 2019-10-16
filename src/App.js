@@ -1,6 +1,7 @@
 import React from 'react';
-import './App.css';
+import './styles/app.scss';
 import { fetchPokemons } from './services/fetchPokemons';
+import logo from './images/Pokemon-Logo.png';
 import Pokemons from './components/Pokemons';
 import Search from './components/Search';
 
@@ -41,6 +42,7 @@ class App extends React.Component {
       <div>
         <header className="header" >
           <h1 className="header__title" >Lista de Pokemons</h1>
+          <img className="header__logo" src={logo} alt="logo pokemon"/>
         </header>
         <main>
           <Search getPokemon={this.getPokemon} findPokemon={findPokemon}/>
