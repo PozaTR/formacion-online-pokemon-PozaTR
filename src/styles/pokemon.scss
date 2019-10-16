@@ -1,0 +1,37 @@
+.pokemon {
+  align-items: center;
+  border: solid 2px #E3350D;
+  border-radius: 10px;
+  display:flex;
+  justify-content: center;
+  height: 100%;
+  padding: 22px;
+  width: 100%;
+
+  &__image-container {
+    background-color: #afafaf;
+    display:flex;
+  }
+
+  &__number {
+    background-color: #909090;
+  }
+
+  &__name {
+    font-weight: bold;
+    padding: 6px;
+    text-transform: capitalize;
+  } 
+
+  &__types {
+    display: flex;
+    list-style: none;
+  }
+
+  &__type {
+    border: 1px solid #afafaf;
+    border-radius: 10px;
+    margin-right: 6px;
+    padding: 6px;
+  }
+}

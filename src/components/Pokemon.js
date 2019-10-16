@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/pokemon.scss'
 import { fetchPokemon } from '../services/fetchPokemon';
 import PropTypes from 'prop-types';
 
@@ -29,9 +30,11 @@ class Pokemon extends React.Component {
       <div className="pokemon">
         { !isLoading ? 
         <div className="pokemon__card">
-        <p className="pokemon__name">{pokemon.name}</p>
+        <div className="pokemon__image-container" >
         <img className="pokemon__image" src={pokemon.sprites.back_shiny} alt={pokemon.name}/>
-        <p className="pokemon__number" >{pokemon.id}</p>
+        <p className="pokemon__number" >ID/{pokemon.id}</p>
+        </div>
+        <p className="pokemon__name">{pokemon.name}</p>
         <ul className="pokemon__types">{pokemon.types.map((type, index) => 
           <li className="pokemon__type" key={index}>{type.type.name}</li>
         )}</ul>
