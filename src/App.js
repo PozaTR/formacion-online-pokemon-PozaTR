@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/app.scss';
+import './styles/components/app.scss';
 import { fetchPokemons } from './services/fetchPokemons';
 import logo from './images/Pokemon-Logo.png';
 import Pokemons from './components/Pokemons';

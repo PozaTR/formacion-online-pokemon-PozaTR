@@ -1,8 +1,10 @@
+@import '../core/variables';
+
 .pokemon {
   align-items: center;
-  border: solid 2px #E3350D;
+  border: solid 2px $red;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px #afafaf;
+  box-shadow: 1px 1px 5px $light;
   display:flex;
   justify-content: center;
   height: 100%;
@@ -11,14 +13,14 @@
 
   &__image-container {
     align-items: center;
-    border: 2px solid #4dad5b;
+    border: 2px solid $green;
     border-radius: 10px;
     display:flex;
     justify-content: center;
   }
 
   &__number {
-    border: 2px solid #4dad5b;
+    border: 2px solid $green;
     margin: 6px;
     padding: 6px;
   }
@@ -37,7 +39,7 @@
   }
 
   &__type {
-    border: 1px solid #EE6B2F;
+    border: 1px solid $orange;
     border-radius: 10px;
     font-size: 16px;
     margin-right: 12px;
@@ -46,8 +48,8 @@
 
   &__loader {
     animation: spin 2s linear infinite;
-    border: 12px solid #EE6B2F; 
-    border-top: 12px solid #30A7D7; 
+    border: 12px solid $orange; 
+    border-top: 12px solid $blue-light; 
     border-radius: 50%;
     height: 75px;
     width: 75px;

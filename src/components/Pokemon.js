@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/pokemon.scss'
+import '../styles/components/pokemon.scss'
 import { fetchPokemon } from '../services/fetchPokemon';
 import PropTypes from 'prop-types';
 

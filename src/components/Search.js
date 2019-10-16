@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/components/search.scss';
 import PropTypes from 'prop-types';
 
 const Search = (props) => {
