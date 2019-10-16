@@ -5,7 +5,8 @@ const Pokemons = (props) => {
   const { pokemons } = props;
   return (
       <ul>
-          {pokemons.map(pokemon =>
+          {pokemons
+          .map(pokemon =>
             <li>
               <Pokemon pokemon={pokemon} />
             </li>
