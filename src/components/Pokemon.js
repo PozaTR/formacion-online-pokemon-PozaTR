@@ -34,15 +34,19 @@ class Pokemon extends React.Component {
                 <li className={`pokemon__type pokemon__type--${type.type.name}`} key={index}>{type.type.name}</li>
               )}
               </ul>
-              <div className="pokemon__image-container" >
-                <img className="pokemon__image" src={pokemon.sprites.front_shiny} alt={pokemon.name}/>
+              <div className="pokemon__information" >
+                <div className="pokemon__information__container">
+                  <img className="pokemon__image" src={pokemon.sprites.front_shiny} alt={pokemon.name}/>
+                  <p className="pokemon__name">{pokemon.name}</p>
+                </div>
                 <p className="pokemon__number" >ID/{pokemon.id}</p>
-                <p className="pokemon__name">{pokemon.name}</p>
               </div>
             </React.Fragment> 
           : <React.Fragment>
-              <p className="pokemon__name">{poke.name}</p>
-              <div class="pokemon__loader"></div>
+              <div className="pokemon__information__container">
+                <p className="pokemon__name">{poke.name}</p>
+                <div class="pokemon__loader"></div>
+              </div>
             </React.Fragment>
         }
       </div>

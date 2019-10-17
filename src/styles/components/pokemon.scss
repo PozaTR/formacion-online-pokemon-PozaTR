@@ -13,32 +13,6 @@
   overflow: hidden;
   position: relative;
 
-  &__image-container {
-    align-items: center;
-    display:flex;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    padding: 22px;
-    position:relative;
-    z-index:1;
-  }
-
-  &__number {
-    background-color: rgba($white, 0.6);
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    left:0;
-  }
-
-  &__name {
-    font-size: 24px;
-    font-weight: bold;
-    padding: 12px;
-    text-transform: capitalize;
-  } 
-
   &__types {
     bottom: 0px;
     display: flex;
@@ -53,7 +27,7 @@
     color: $white;
     flex-grow: 1;
     font-size: 16px;
-    padding: 6px;
+    padding: 16px;
 
     &--normal {
       background-color: $c-normal;
@@ -136,6 +110,41 @@
     }
   }
 
+  &__information {
+    align-items: center;
+    display:flex;
+    justify-content: center;
+    height: 100%;
+    padding: 12px;
+    position:relative;
+    width: 100%;
+
+    &__container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px;
+      z-index:1;
+    }
+  }
+
+  &__number {
+    background-color: rgba($white, 0.6);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left:0;
+  }
+
+  &__name {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: capitalize;
+  } 
+
+  
+
   &__loader {
     animation: spin 2s linear infinite;
     border: 12px solid $orange; 
@@ -143,6 +152,7 @@
     border-radius: 50%;
     display: inline-block;
     height: 75px;
+    margin-top:12px;
     width: 75px;
 
     @keyframes spin {
