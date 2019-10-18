@@ -10,8 +10,8 @@ const Pokemons = (props) => {
       <ul className="pokemons__list">
           {pokemons
           .filter(myPokemon => myPokemon.name.toUpperCase().includes(findPokemon.toUpperCase()))
-          .map((pokemon, index) =>
-            <li key={index} >
+          .map((pokemon) =>
+            <li key={`pokemon-${pokemon.name}`} >
               <Pokemon pokemon={pokemon} />
             </li>
           )}
