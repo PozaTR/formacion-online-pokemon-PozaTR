@@ -45,7 +45,7 @@ class Pokemon extends React.Component {
           : <React.Fragment>
               <div className="pokemon__information__container">
                 <p className="pokemon__name">{poke.name}</p>
-                <div class="pokemon__loader"></div>
+                <div className="pokemon__loader"></div>
               </div>
             </React.Fragment>
         }

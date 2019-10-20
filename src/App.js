@@ -20,7 +20,6 @@ class App extends React.Component {
   componentDidMount() {
     fetchPokemons()
     .then(pokemons => {
-      console.log(pokemons)
       this.setState({
         pokemons: pokemons.results
       })
@@ -29,7 +28,6 @@ class App extends React.Component {
 
   getPokemon(event) {
     const findPokemon = event.currentTarget.value;
-    console.log(findPokemon)
     this.setState ({
       findPokemon: findPokemon
     })
