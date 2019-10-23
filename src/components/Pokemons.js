@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/components/pokemons.scss';
 import Pokemon from './Pokemon';
 import PropTypes from 'prop-types';
@@ -12,7 +13,9 @@ const Pokemons = (props) => {
           .filter(myPokemon => myPokemon.name.toUpperCase().includes(findPokemon.toUpperCase()))
           .map((pokemon) =>
             <li key={`pokemon-${pokemon.name}`} >
-              <Pokemon pokemon={pokemon} />
+              <Link className="main__link" to={`/detail/${pokemon.name}`}>
+                <Pokemon pokemon={pokemon} />
+              </Link>
             </li>
           )}
         </ul>

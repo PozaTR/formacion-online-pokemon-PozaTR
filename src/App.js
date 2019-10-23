@@ -1,9 +1,12 @@
 import React from 'react';
 import './styles/components/app.scss';
+import { Switch, Route } from 'react-router-dom';
 import { fetchPokemons } from './services/fetchPokemons';
 import logo from './images/Pokemon-Logo.png';
-import Pokemons from './components/Pokemons';
 import Search from './components/Search';
+import Pokemons from './components/Pokemons';
+import PokemonDetail from './components/PokemonDetail';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -43,8 +46,20 @@ class App extends React.Component {
           <img className="header__logo" src={logo} alt="logo pokemon"/>
         </header>
         <main>
-          <Search getPokemon={this.getPokemon} findPokemon={findPokemon}/>
-          <Pokemons pokemons={pokemons} findPokemon={findPokemon}/>
+          <Switch >
+            <Route exact path="/" render={RouterProps => (
+              <React.Fragment>
+                <Search match={RouterProps.match} getPokemon={this.getPokemon} findPokemon={findPokemon}/>
+                <Pokemons match={RouterProps.match} pokemons={pokemons} findPokemon={findPokemon}/>
+              </React.Fragment>
+             )}>
+            </Route>
+            <Route path="/detail/:pokemonName" render={RouterProps => (
+              <PokemonDetail match={RouterProps.match} pokemons={pokemons}/>
+            )}>
+            </Route>
+            
+          </Switch>
         </main>
       </div>
     );
