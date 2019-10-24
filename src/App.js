@@ -1,11 +1,11 @@
 import React from 'react';
-import './styles/components/app.scss';
 import { Switch, Route } from 'react-router-dom';
 import { fetchPokemons } from './services/fetchPokemons';
-import logo from './images/Pokemon-Logo.png';
 import Search from './components/Search';
 import Pokemons from './components/Pokemons';
 import PokemonDetail from './components/PokemonDetail';
+import logo from './images/Pokemon-Logo.png';
+import './styles/components/app.scss';
 
 
 class App extends React.Component {
@@ -14,7 +14,8 @@ class App extends React.Component {
 
     this.state = {
       pokemons: [],
-      findPokemon: ''
+      findPokemon: '',
+      isLoading: true
     }
 
     this.getPokemon = this.getPokemon.bind(this);
@@ -23,8 +24,16 @@ class App extends React.Component {
   componentDidMount() {
     fetchPokemons()
     .then(pokemons => {
+      const pokemonsArray = pokemons.results.map(pokemon => {
+        return fetch(pokemon.url)
+          .then(response => response.json());
+      });
+      return Promise.all(pokemonsArray);
+    })
+    .then(pokemonsArray => {
       this.setState({
-        pokemons: pokemons.results
+        pokemons: pokemonsArray,
+        isLoading: false
       })
     })
   }
@@ -37,7 +46,7 @@ class App extends React.Component {
   }
   
   render() {
-    const { pokemons, findPokemon } = this.state;
+    const { pokemons, findPokemon, isLoading } = this.state;
 
     return(
       <div>
@@ -49,8 +58,8 @@ class App extends React.Component {
           <Switch >
             <Route exact path="/" render={RouterProps => (
               <React.Fragment>
-                <Search match={RouterProps.match} getPokemon={this.getPokemon} findPokemon={findPokemon}/>
-                <Pokemons match={RouterProps.match} pokemons={pokemons} findPokemon={findPokemon}/>
+                <Search match={RouterProps.match} getPokemon={this.getPokemon} />
+                <Pokemons match={RouterProps.match} pokemons={pokemons} findPokemon={findPokemon} isLoading={isLoading}/>
               </React.Fragment>
              )}>
             </Route>

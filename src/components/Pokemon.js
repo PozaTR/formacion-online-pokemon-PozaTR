@@ -1,31 +1,10 @@
 import React from 'react';
-import '../styles/components/pokemon.scss'
-import { fetchPokemon } from '../services/fetchPokemon';
 import PropTypes from 'prop-types';
+import '../styles/components/pokemon.scss';
 
 class Pokemon extends React.Component {
-  constructor(props) {
-      super(props)
-
-      this.state = {
-        pokemon: {},
-        isLoading:true
-      }
-  }
-
-  componentDidMount() {
-    fetchPokemon(this.props.pokemon.url)
-    .then(pokemon => {
-      this.setState({
-        pokemon: pokemon,
-        isLoading: false
-      });
-    });
-  }
-
   render() {
-    const { pokemon, isLoading } = this.state;
-    const { pokemon: poke } = this.props;
+    const { pokemon, isLoading } = this.props;
     return(
       <div className="pokemon">
         { !isLoading
@@ -44,7 +23,7 @@ class Pokemon extends React.Component {
             </React.Fragment> 
           : <React.Fragment>
               <div className="pokemon__information__container">
-                <p className="pokemon__name">{poke.name}</p>
+                <p className="pokemon__name">{pokemon.name}</p>
                 <div className="pokemon__loader"></div>
               </div>
             </React.Fragment>
