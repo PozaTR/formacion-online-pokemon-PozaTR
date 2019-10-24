@@ -12,7 +12,7 @@ const Pokemons = (props) => {
       <ul className="pokemons__list">
           {pokemonsFilter.map((pokemon) =>
             <li key={`pokemon-${pokemon.name}`} >
-              <Link className="main__link" to={`/detail/${pokemon.name}`}>
+              <Link className="main__link" to={`/detail/${pokemon.id}`}>
                 <Pokemon pokemon={pokemon} />
               </Link>
             </li>

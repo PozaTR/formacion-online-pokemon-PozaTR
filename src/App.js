@@ -63,7 +63,7 @@ class App extends React.Component {
               </React.Fragment>
              )}>
             </Route>
-            <Route path="/detail/:pokemonName" render={RouterProps => (
+            <Route path="/detail/:pokemonId" render={RouterProps => (
               <PokemonDetail match={RouterProps.match} pokemons={pokemons}/>
             )}>
             </Route>
