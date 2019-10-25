@@ -31,6 +31,7 @@ class App extends React.Component {
       return Promise.all(pokemonsArray);
     })
     .then(pokemonsArray => {
+      console.log(pokemonsArray)
       this.setState({
         pokemons: pokemonsArray,
         isLoading: false
