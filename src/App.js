@@ -1,6 +1,7 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { fetchPokemons } from './services/fetchPokemons';
+import { fetchPokemon } from './services/fetchPokemon';
 import Search from './components/Search';
 import Pokemons from './components/Pokemons';
 import PokemonDetail from './components/PokemonDetail';
@@ -15,29 +16,50 @@ class App extends React.Component {
     this.state = {
       pokemons: [],
       findPokemon: '',
-      isLoading: true
+      isLoading: true,
+      pokemonDetail: {}
     }
 
     this.getPokemon = this.getPokemon.bind(this);
   }
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.getPageInfo(this.props.location.pathname);
+    }
+  }
 
   componentDidMount() {
-    fetchPokemons()
-    .then(pokemons => {
-      const pokemonsArray = pokemons.results.map(pokemon => {
-        return fetch(pokemon.url)
-          .then(response => response.json());
-      });
-      return Promise.all(pokemonsArray);
-    })
-    .then(pokemonsArray => {
-      console.log(pokemonsArray)
-      this.setState({
-        pokemons: pokemonsArray,
-        isLoading: false
-      })
-    })
+    this.getPageInfo(this.props.location.pathname);
   }
+
+  getPageInfo(pathname) {
+    if(pathname === '/') {
+      fetchPokemons()
+      .then(pokemons => {
+        const pokemonsArray = pokemons.results.map(pokemon => {
+          const positionPokeId = pokemon.url.slice(0, -1).lastIndexOf('/') + 1
+          const pokemonId = pokemon.url.substring(positionPokeId).slice(0, -1)
+          return fetchPokemon(pokemonId);
+        });
+        return Promise.all(pokemonsArray);
+      })
+      .then(pokemonsArray => {
+        this.setState({
+          pokemons: pokemonsArray,
+          isLoading: false
+        })
+      })
+    } else {
+      const positionPokeId = pathname.lastIndexOf('/') + 1
+      const pokemonId = pathname.substring(positionPokeId)
+      fetchPokemon(pokemonId)
+        .then(pokemon => {
+          this.setState({
+            pokemonDetail: pokemon
+          })
+        })
+    }
+  } 
 
   getPokemon(event) {
     const findPokemon = event.currentTarget.value;
@@ -47,7 +69,7 @@ class App extends React.Component {
   }
   
   render() {
-    const { pokemons, findPokemon, isLoading } = this.state;
+    const { pokemons, findPokemon, isLoading, pokemonDetail } = this.state;
 
     return(
       <div>
@@ -65,7 +87,7 @@ class App extends React.Component {
              )}>
             </Route>
             <Route path="/detail/:pokemonId" render={RouterProps => (
-              <PokemonDetail match={RouterProps.match} pokemons={pokemons}/>
+              <PokemonDetail match={RouterProps.match} pokemon={pokemonDetail}/>
             )}>
             </Route>
             
@@ -76,4 +98,4 @@ class App extends React.Component {
   }
 };
 
-export default App;
+export default withRouter(props => <App {...props}/>);

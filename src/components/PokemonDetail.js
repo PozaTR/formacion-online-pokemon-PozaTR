@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import '../styles/components/pokemonDetail.scss';
 
 const PokemonDetail = (props) => {
-  const { pokemons, match } = props;
-  const pokemonId = parseInt(match.params.pokemonId);
-  const pokemonFind = pokemons.find(pokemon => pokemon.id === pokemonId);
+  const { pokemon, match } = props;
+  
 
-  if(pokemonFind) {
-    const { name, sprites, abilities, weight, height, types, id} = pokemonFind;
+  if(Object.keys(pokemon).length) {
+    const { name, sprites, abilities, weight, height, types, id} = pokemon;
 
     return(
       <div className="pokemon-detail">
@@ -53,7 +52,7 @@ const PokemonDetail = (props) => {
 }
 
 PokemonDetail.propTypes = {
-  pokemons: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pokemon: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired
 }
 
