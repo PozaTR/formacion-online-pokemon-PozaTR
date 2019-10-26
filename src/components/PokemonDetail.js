@@ -5,10 +5,9 @@ import '../styles/components/pokemonDetail.scss';
 
 const PokemonDetail = (props) => {
   const { pokemon, match } = props;
-  
 
   if(Object.keys(pokemon).length) {
-    const { name, sprites, abilities, weight, height, types, id} = pokemon;
+    const { name, sprites, abilities, weight, height, types, id, evolves_from_species} = pokemon;
 
     return(
       <div className="pokemon-detail">
@@ -37,6 +36,7 @@ const PokemonDetail = (props) => {
           </div>
           <div className="pokemon-detail__evolution">
             <h3 className="pokemon-detail__evolution__title pokemon-detail__titles">evolution</h3>
+            {evolves_from_species ? (<p>{evolves_from_species.name}</p>) : ''}
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@ class Pokemon extends React.Component {
                   <p className="pokemon__name">{pokemon.name}</p>
                 </div>
                 <p className="pokemon__number" >ID/{pokemon.id}</p>
+                {pokemon.evolves_from_species ? (<p>{pokemon.evolves_from_species.name}</p>) : ''}
               </div>
             </React.Fragment> 
           : <React.Fragment>

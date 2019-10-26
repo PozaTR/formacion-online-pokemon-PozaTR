@@ -37,8 +37,12 @@ class App extends React.Component {
       fetchPokemons()
       .then(pokemons => {
         const pokemonsArray = pokemons.results.map(pokemon => {
-          const positionPokeId = pokemon.url.slice(0, -1).lastIndexOf('/') + 1
-          const pokemonId = pokemon.url.substring(positionPokeId).slice(0, -1)
+          //remove trailing slash from url
+          const urlCleaned = pokemon.url.slice(0, -1);
+          //find last slash position
+          const lastSlashPosition = urlCleaned.lastIndexOf('/');
+          //keep the rest of url after last slash position (pokemonId)
+          const pokemonId = pokemon.url.substring(lastSlashPosition + 1);
           return fetchPokemon(pokemonId);
         });
         return Promise.all(pokemonsArray);
