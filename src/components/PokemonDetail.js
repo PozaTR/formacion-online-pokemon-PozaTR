@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import PokemonTypesBackground from './PokemonTypesBackground';
 import '../styles/components/pokemonDetail.scss';
 
 const PokemonDetail = (props) => {
@@ -11,6 +12,7 @@ const PokemonDetail = (props) => {
 
     return(
       <div className="pokemon-detail">
+        <PokemonTypesBackground pokemonTypes={types}/>
         <Link className="pokemon-detail__link" to="/">Volver</Link>
         <div className="pokemon-detail__information" >
           <h2 className="pokemon-detail__information__name">{name}</h2>

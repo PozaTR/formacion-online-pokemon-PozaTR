@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PokemonTypesBackground from './PokemonTypesBackground';
 import '../styles/components/pokemon.scss';
 
 class Pokemon extends React.Component {
@@ -9,10 +10,7 @@ class Pokemon extends React.Component {
       <div className="pokemon">
         { !isLoading
           ? <React.Fragment>
-              <ul className="pokemon__types">{pokemon.types.map((type, index) => 
-                <li className={`pokemon__type pokemon__type--${type.type.name}`} key={index}>{type.type.name}</li>
-              )}
-              </ul>
+              <PokemonTypesBackground  pokemonTypes={pokemon.types} showType/>
               <div className="pokemon__information" >
                 <div className="pokemon__information__container">
                   <img className="pokemon__image" src={pokemon.sprites.front_shiny} alt={pokemon.name}/>
