@@ -1,17 +1,18 @@
 @import '../core/variables';
 
 .pokemon-detail {
+  $pokemonDetail: &;
+
   position: relative;
-}
 
-.pokemon-detail__information {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  max-width: 1024px;
-  margin: 0 auto;
-  width: 90%;
-
+  &__card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    margin: 0 auto;
+    width: 90%;
+  }
 
   &__name {
     color: $white;
@@ -19,13 +20,8 @@
     padding:26px;
     text-align: center;
     text-transform: capitalize;
-
-    @media all and (min-width: 768px) {
-      font-size: 36px;
-      padding: 32px;
-    }
   }
-
+  
   &__container {
     align-items: center;
     display:flex;
@@ -33,7 +29,7 @@
     justify-content: center;
     position: relative;
   }
-
+  
   &__types {
       display:flex;
       list-style: none;
@@ -45,21 +41,10 @@
     margin: 4px;
     padding: 8px;
     text-transform: uppercase;
-
-    @media all and (min-width: 768px) {
-      font-size: 24px;
-      margin: 8px;
-    }
   }
-
+  
   &__image {
     padding: 16px;
-
-    @media all and (min-width: 768px) {
-      padding: 16px 16px 10px;
-      width: 175px;
-
-    }
   }
 
   &__number {
@@ -68,61 +53,113 @@
     padding: 12px;
     position: absolute;
     right:0;
+  }
 
-    @media all and (min-width: 768px) {
-      font-size: 28px;
-      padding: 24px;
+  &__profile {
+    padding: 0px;
+  
+    #{$pokemonDetail}__container {
+      font-size: 16px;
+      padding-left: 24px;
+      text-transform:capitalize;
     }
   }
-}
-
-.pokemon-detail__profile {
-  padding: 0px;
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    font-size: 16px;
-    padding-left: 24px;
-    text-transform:capitalize;
-
-    @media all and (min-width: 768px) {
-      font-size: 20px;
-    }
-  }
-
-  &__information {
-    padding: 4px;
-  }
-
+  
   &__abilities {
     display: flex;
     flex-direction: column;
     list-style: none;
-
-    @media all and (min-width: 768px) {
-      flex-direction: row;
-    }
   }
-
+  
   &__ability {
     padding:4px; 
     text-align: center;
-
-    @media all and (min-width: 768px) {
-      padding:0 4px; 
-    }
   }
-}
 
-.pokemon-detail__titles {
-  color: $white;
-  font-size: 24px;
-  padding: 16px 16px 16px 4px;
-  text-transform: capitalize;
+  &__title {
+    color: $white;
+    font-size: 24px;
+    padding: 16px 16px 16px 4px;
+    text-transform: capitalize;
 
-  @media all and (min-width: 768px) {
-    font-size: 28px;
-    padding: 16px 16px 16px 10px;
+    &--normal {
+      background-color: desaturate(darken($c-normal, 15), 10);
+    }
+
+    &--fighting {
+      background-color: desaturate(darken($c-fighting, 20), 10);
+    }
+
+    &--flying {
+      background-color: desaturate(darken($c-flying, 20), 10);
+    }
+
+    &--poison {
+      background-color: desaturate(darken($c-poison, 20), 10);
+    }
+
+    &--ground {
+      background-color: desaturate(lighten($c-ground, 20), 20);
+    }
+
+    &--rock {
+      background-color: desaturate(darken($c-rock, 20), 10);
+    }
+
+    &--bug {
+      background-color: desaturate(lighten($c-bug, 20), 10);
+    }
+
+    &--ghost {
+      background-color: desaturate(darken($c-ghost, 20), 10);
+    }
+
+    &--steel {
+      background-color: desaturate(darken($c-steel, 20), 10);
+    }
+
+    &--fire {
+      background-color: desaturate(darken($c-fire, 20), 10);
+    }
+
+    &--water {
+      background-color: desaturate(darken($c-water, 20), 10);
+    }
+
+    &--grass {
+      background-color: desaturate(darken($c-grass, 20), 10);
+    }
+
+    &--electric {
+      background-color: desaturate(darken($c-electric, 20), 10);
+    }
+
+    &--psychic {
+      background-color: desaturate(darken($c-psychic, 20), 10);
+    }
+
+    &--ice {
+      background-color: desaturate(darken($c-ice, 20), 10);
+    }
+
+    &--dragon {
+      background-color: desaturate(darken($c-dragon, 20), 10);
+    }
+
+    &--dark {
+      background-color: desaturate(darken($c-dark, 20), 10);
+    }
+
+    &--fairy {
+      background-color: desaturate(darken($c-fairy, 20), 10);
+    }
+
+    &--unknown {
+      background-color: desaturate(darken($c-unknown, 20), 10);
+    }
+
+    &--shadow {
+      background-color: desaturate(darken($c-shadow, 20), 10);
+    }
   }
 }
