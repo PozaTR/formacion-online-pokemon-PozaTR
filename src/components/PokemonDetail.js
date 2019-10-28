@@ -26,30 +26,32 @@ const PokemonDetail = (props) => {
           </div>
           <div className="pokemon-detail__profile">
             <h3 className={`pokemon-detail__title pokemon-detail__title--${types[0].type.name}`}>profile</h3>
-            <div className="pokemon-detail__container pokemon-detail__profile__imformation">
-              <div>
-                <p className="pokemon-detail__information" ><strong>weight: </strong>{weight}</p>
-                <p className="pokemon-detail__information" ><strong>height: </strong>{height}</p>
-                <p className="pokemon-detail__information" ><strong>egg groups: </strong>
-                  <ul className="pokemon-detail__information__list">
-                  {egg_groups.map((eggGroup, index) => 
-                    <li className="pokemon-detail__information__list__element" key={index}>{eggGroup.name}</li>
-                    )}
-                  </ul>
-                </p>
-              </div>
-              <div>
-                <p className="pokemon-detail__information" ><strong>abilities: </strong>
-                  <ul className="pokemon-detail__information__list">
-                  {abilities.map((ability, index) => 
-                    <li className="pokemon-detail__information__list__element" key={index}>{ability.ability.name}</li>
-                    )}
-                  </ul>
-                </p>
-                <p className="pokemon-detail__information" ><strong>gender rate: </strong>{gender_rate}</p>
-                <p className="pokemon-detail__information" ><strong>habitat:  </strong>{habitat.name}</p>
-              </div>
-            </div>
+            <dl className="pokemon-detail__container pokemon-detail__profile__list">
+              <dt className="pokemon-detail__profile__term">Weight:</dt>
+              <dd className="pokemon-detail__profile__definition">{weight}</dd>
+              <dt className="pokemon-detail__profile__term">Height:</dt>
+              <dd className="pokemon-detail__profile__definition">{height}</dd>
+              <dt className="pokemon-detail__profile__term">Egg groups:</dt>
+              <dd className="pokemon-detail__profile__definition">
+                <ul className="pokemon-detail__definition__list">
+                {egg_groups.map((eggGroup, index) => 
+                  <li className="pokemon-detail__definition__element" key={`egg-group-${index}`}>{eggGroup.name}</li>
+                )}
+                </ul>
+              </dd>
+              <dt className="pokemon-detail__profile__term">Gender rate:</dt>
+              <dd className="pokemon-detail__profile__definition">{gender_rate}</dd>
+              <dt className="pokemon-detail__profile__term">Habitat:</dt>
+              <dd className="pokemon-detail__profile__definition">{habitat.name}</dd>
+              <dt className="pokemon-detail__profile__term">Abilities:</dt>
+              <dd className="pokemon-detail__profile__definition">
+                <ul className="pokemon-detail__definition__list">
+                {abilities.map((ability, index) => 
+                  <li className="pokemon-detail__definition__element" key={`ability-${index}`}>{ability.ability.name}</li>
+                )}
+                </ul>
+              </dd>
+            </dl>
           </div>
           {evolves_from_species 
             ? (<div className="pokemon-detail__evolution">

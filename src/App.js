@@ -74,20 +74,21 @@ class App extends React.Component {
   
   render() {
     const { pokemons, findPokemon, isLoading, pokemonDetail } = this.state;
+    const { location } = this.props;
 
     return(
-      <div>
-        <header className="header" >
+      <>
+        <header className={`header ${location.pathname !== '/' ? 'header--slim' : ''}`} >
           <h1 className="header__title" >Lista de Pokemons</h1>
           <img className="header__logo" src={logo} alt="logo pokemon"/>
         </header>
         <main className="main">
           <Switch >
             <Route exact path="/" render={RouterProps => (
-              <React.Fragment>
+              <div>
                 <Search match={RouterProps.match} getPokemon={this.getPokemon} />
                 <Pokemons match={RouterProps.match} pokemons={pokemons} findPokemon={findPokemon} isLoading={isLoading}/>
-              </React.Fragment>
+              </div>
              )}>
             </Route>
             <Route path="/detail/:pokemonId" render={RouterProps => (
@@ -97,7 +98,7 @@ class App extends React.Component {
             
           </Switch>
         </main>
-      </div>
+      </>
     );
   }
 };

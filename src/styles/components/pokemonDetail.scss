@@ -3,10 +3,13 @@
 .pokemon-detail {
   $pokemonDetail: &;
 
+  padding: 16px;
   position: relative;
   
   &__link {
     color:$white;
+    display: block;
+    margin-bottom: 1em;
     text-decoration: none;
   }
 
@@ -14,10 +17,9 @@
     background-color:$white;
     display: flex;
     flex-direction: column;
-    margin: 16px auto;
-    max-width: 1024px;
+    margin: 0 auto;
+    max-width: 968px;
     padding: 16px;
-    width: 90%;
   }
 
   &__name {
@@ -64,18 +66,43 @@
     right:0;
   }
 
-  &__profile__imformation {
+  &__profile__list {
+    align-items: flex-start;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
   }
 
-  &__information__list {
-    display: flex;
-    list-style: none;
+  &__profile__term {
+    font-weight: bold;
+    padding-bottom: 4px;
+    width: 50%;
+
+    @media all and (min-width: 768px) {
+      width: 15%;
+    }
+  }
+
+  &__profile__definition {
+    padding-bottom: 4px;
+    width: 50%;
+
+    @media all and (min-width: 768px) {
+      width: 35%;
+    }
+  }
+
+  &__definition {
+    &__list {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+    }
 
     &__element {
-      padding-right: 8px;
+      &:not(:last-child) {
+        padding-bottom: 4px;
+      }
     }
   }
 

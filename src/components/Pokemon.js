@@ -16,6 +16,11 @@ class Pokemon extends React.Component {
                   <img className="pokemon__image" src={pokemon.sprites.front_shiny} alt={pokemon.name}/>
                   <p className="pokemon__name">{pokemon.name}</p>
                   {pokemon.evolves_from_species ? (<p className="pokemon__evolution" >{pokemon.evolves_from_species.name}</p>) : ''}
+                  <ul className="pokemon__types">
+                    {pokemon.types.map((type, index) => 
+                      <li className="pokemon__type" key={`type-${index}`}>{type.type.name}</li>
+                    )}
+                  </ul>
                 </div>
                 <p className="pokemon__number" >ID/{pokemon.id}</p>
               </div>
