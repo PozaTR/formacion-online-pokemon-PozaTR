@@ -8,7 +8,7 @@ const PokemonDetail = (props) => {
   const { pokemon } = props;
 
   if(Object.keys(pokemon).length) {
-    const { name, sprites, abilities, weight, height, types, id, evolves_from_species} = pokemon;
+    const { name, sprites, abilities, weight, height, types, id, evolves_from_species, gender_rate, egg_groups, habitat } = pokemon;
 
     return(
       <div className="pokemon-detail">
@@ -30,14 +30,25 @@ const PokemonDetail = (props) => {
               <div>
                 <p className="pokemon-detail__information" ><strong>weight: </strong>{weight}</p>
                 <p className="pokemon-detail__information" ><strong>height: </strong>{height}</p>
-              </div>
-                <p className="pokemon-detail__information" ><strong>abilities: </strong>
-                  <ul className="pokemon-detail__abilities">
-                  {abilities.map((ability, index) => 
-                    <li className="pokemon-detail__profile__ability" key={index}>{ability.ability.name}</li>
+                <p className="pokemon-detail__information" ><strong>egg groups: </strong>
+                  <ul className="pokemon-detail__information__list">
+                  {egg_groups.map((eggGroup, index) => 
+                    <li className="pokemon-detail__information__list__element" key={index}>{eggGroup.name}</li>
                     )}
                   </ul>
                 </p>
+              </div>
+              <div>
+                <p className="pokemon-detail__information" ><strong>abilities: </strong>
+                  <ul className="pokemon-detail__information__list">
+                  {abilities.map((ability, index) => 
+                    <li className="pokemon-detail__information__list__element" key={index}>{ability.ability.name}</li>
+                    )}
+                  </ul>
+                </p>
+                <p className="pokemon-detail__information" ><strong>gender rate: </strong>{gender_rate}</p>
+                <p className="pokemon-detail__information" ><strong>habitat:  </strong>{habitat.name}</p>
+              </div>
             </div>
           </div>
           {evolves_from_species 

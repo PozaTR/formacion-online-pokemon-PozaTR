@@ -28,7 +28,7 @@ Service available fetches required information from Api about pokemon characters
 -Search: find pokemon card by name.
 -Pokemons: render pokemons list
 -Pokemon: fetch pokemon card information and render it.
--PokemonDetail: render more information about the selected character like it height, weight and abilities.
+-PokemonDetail: render more information about the selected character like it height, weight , abilities, gender rate, egg groups and habitat.
 -PokemonTypesBackground: it's a special component created to render types styles.
 
 ## Technologies
