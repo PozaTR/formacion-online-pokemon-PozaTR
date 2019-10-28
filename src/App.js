@@ -81,7 +81,7 @@ class App extends React.Component {
           <h1 className="header__title" >Lista de Pokemons</h1>
           <img className="header__logo" src={logo} alt="logo pokemon"/>
         </header>
-        <main>
+        <main className="main">
           <Switch >
             <Route exact path="/" render={RouterProps => (
               <React.Fragment>

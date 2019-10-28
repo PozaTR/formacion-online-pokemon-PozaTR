@@ -4,18 +4,23 @@
   $pokemonDetail: &;
 
   position: relative;
+  
+  &__link {
+    color:$white;
+    text-decoration: none;
+  }
 
   &__card {
-    background-color: white;
+    background-color:$white;
     display: flex;
     flex-direction: column;
+    margin: 16px auto;
     max-width: 1024px;
-    margin: 0 auto;
+    padding: 16px;
     width: 90%;
   }
 
   &__name {
-    color: $white;
     font-size: 32px;
     padding:26px;
     text-align: center;
@@ -26,8 +31,11 @@
     align-items: center;
     display:flex;
     flex-direction: column;
+    font-size: 20px;
     justify-content: center;
+    padding:10px;
     position: relative;
+    text-transform:capitalize;
   }
   
   &__types {
@@ -45,41 +53,33 @@
   
   &__image {
     padding: 16px;
+    width: 250px;
   }
 
   &__number {
     bottom: 0;
-    font-size: 18px;
+    font-size: 20px;
     padding: 12px;
     position: absolute;
     right:0;
   }
 
-  &__profile {
-    padding: 0px;
-  
-    #{$pokemonDetail}__container {
-      font-size: 16px;
-      padding-left: 24px;
-      text-transform:capitalize;
-    }
+  &__profile__imformation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
-  
+
   &__abilities {
     display: flex;
-    flex-direction: column;
     list-style: none;
-  }
-  
-  &__ability {
-    padding:4px; 
-    text-align: center;
   }
 
   &__title {
     color: $white;
     font-size: 24px;
-    padding: 16px 16px 16px 4px;
+    margin: 16px 0;
+    padding: 16px;
     text-transform: capitalize;
 
     &--normal {

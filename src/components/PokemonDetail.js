@@ -5,7 +5,7 @@ import PokemonTypesBackground from './PokemonTypesBackground';
 import '../styles/components/pokemonDetail.scss';
 
 const PokemonDetail = (props) => {
-  const { pokemon, match } = props;
+  const { pokemon } = props;
 
   if(Object.keys(pokemon).length) {
     const { name, sprites, abilities, weight, height, types, id, evolves_from_species} = pokemon;
@@ -26,22 +26,24 @@ const PokemonDetail = (props) => {
           </div>
           <div className="pokemon-detail__profile">
             <h3 className={`pokemon-detail__title pokemon-detail__title--${types[0].type.name}`}>profile</h3>
-            <div className="pokemon-detail__container">
-              <p className="pokemon-detail__information" >weight: {weight}</p>
-              <p className="pokemon-detail__information" >height: {height}</p>
-              <p className="pokemon-detail__information" >abilities: 
-                <ul className="pokemon-detail__abilities">
-                {abilities.map((ability, index) => 
-                  <li className="pokemon-detail__profile__ability" key={index}>{ability.ability.name}</li>
-                  )}
-                </ul>
-              </p>
+            <div className="pokemon-detail__container pokemon-detail__profile__imformation">
+              <div>
+                <p className="pokemon-detail__information" ><strong>weight: </strong>{weight}</p>
+                <p className="pokemon-detail__information" ><strong>height: </strong>{height}</p>
+              </div>
+                <p className="pokemon-detail__information" ><strong>abilities: </strong>
+                  <ul className="pokemon-detail__abilities">
+                  {abilities.map((ability, index) => 
+                    <li className="pokemon-detail__profile__ability" key={index}>{ability.ability.name}</li>
+                    )}
+                  </ul>
+                </p>
             </div>
           </div>
           {evolves_from_species 
             ? (<div className="pokemon-detail__evolution">
                   <h3 className={`pokemon-detail__title pokemon-detail__title--${types[0].type.name}`}>evolution</h3>
-                  <p>{evolves_from_species.name}</p>
+                  <p className="pokemon-detail__container">{evolves_from_species.name}</p>
                 </div>)
             : ''}
 

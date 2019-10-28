@@ -15,9 +15,9 @@ class Pokemon extends React.Component {
                 <div className="pokemon__information__container">
                   <img className="pokemon__image" src={pokemon.sprites.front_shiny} alt={pokemon.name}/>
                   <p className="pokemon__name">{pokemon.name}</p>
+                  {pokemon.evolves_from_species ? (<p className="pokemon__evolution" >{pokemon.evolves_from_species.name}</p>) : ''}
                 </div>
                 <p className="pokemon__number" >ID/{pokemon.id}</p>
-                {pokemon.evolves_from_species ? (<p>{pokemon.evolves_from_species.name}</p>) : ''}
               </div>
             </React.Fragment> 
           : <React.Fragment>
