@@ -1,27 +1,35 @@
-# First exercise from online course Adalab: Pokemon
+# First and second exercise from online course Adalab: Pokemon
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## What is this project about?
 
-It is a web app made with React to show a list with the first 25 pokemons. In each pokemon card you can see his name, image, number and type.
+It is a web app made with React to show a list with the first 25 pokemons. In each pokemon card you can see his name, image, number, type and evolution.
 Also you have an input where you can filter each pokemon by name.
+Beside that, there is detail page showing up more information about the selected character.
+
 
 ## Project structure
 
-The project includes two service and four components.
+The project includes three service and six components.
+
 
 ### Service
 
--First service (fetchPOkemons): fetch the first 25 pokemons from the API
--Second service (fetchPokemon) : fetch the pokemon card information like name, url, types and order.
+Service available fetches required information from Api about pokemon characters:
+
+    -First service (fetchPOkemons): fetch the first 25 pokemons from the API
+    -Second service (fetchPokemon) : fetch the pokemon card information like name, url, types and order.
+    -Thrird service (fetchSpecie) : fetch species information when you cand find pokemon evolution.
 
 ### Components
 
--App: you have the main structure and the diffrents function.
+-App: you have the main structure and the diffrents function and the state.
 -Search: find pokemon card by name.
 -Pokemons: render pokemons list
 -Pokemon: fetch pokemon card information and render it.
+-PokemonDetail: render more information about the selected character like it height, weight and abilities.
+-PokemonTypesBackground: it's a special component created to render types styles.
 
 ## Technologies
 
@@ -47,18 +55,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
