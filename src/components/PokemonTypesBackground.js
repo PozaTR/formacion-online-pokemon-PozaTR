@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/components/pokemonTypesBackground.scss';
 
 const pokemonTypesBackground = (props) => {
@@ -10,6 +11,10 @@ const pokemonTypesBackground = (props) => {
     )}
     </ul>
   )
+}
+
+pokemonTypesBackground.propTypes = {
+  pokemonTypes: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default pokemonTypesBackground;
