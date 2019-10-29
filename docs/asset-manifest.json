@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "./static/css/main.a847b44c.chunk.css",
-    "main.js": "./static/js/main.61461110.chunk.js",
-    "main.js.map": "./static/js/main.61461110.chunk.js.map",
+    "main.js": "./static/js/main.e693a30b.chunk.js",
+    "main.js.map": "./static/js/main.e693a30b.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.6b214a37.js",
     "runtime-main.js.map": "./static/js/runtime-main.6b214a37.js.map",
-    "static/js/2.0994654a.chunk.js": "./static/js/2.0994654a.chunk.js",
-    "static/js/2.0994654a.chunk.js.map": "./static/js/2.0994654a.chunk.js.map",
+    "static/js/2.69443407.chunk.js": "./static/js/2.69443407.chunk.js",
+    "static/js/2.69443407.chunk.js.map": "./static/js/2.69443407.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.bb4ff5877169de4bf86a1e8261f0e8e4.js": "./precache-manifest.bb4ff5877169de4bf86a1e8261f0e8e4.js",
+    "precache-manifest.01e00efe31b8f5f183d8c90a21d8bb28.js": "./precache-manifest.01e00efe31b8f5f183d8c90a21d8bb28.js",
     "service-worker.js": "./service-worker.js",
     "static/css/main.a847b44c.chunk.css.map": "./static/css/main.a847b44c.chunk.css.map",
     "static/media/Pokemon-Logo.png": "./static/media/Pokemon-Logo.34a9197f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.6b214a37.js",
-    "static/js/2.0994654a.chunk.js",
+    "static/js/2.69443407.chunk.js",
     "static/css/main.a847b44c.chunk.css",
-    "static/js/main.61461110.chunk.js"
+    "static/js/main.e693a30b.chunk.js"
   ]
 }
