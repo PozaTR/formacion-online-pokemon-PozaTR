@@ -1,3 +1,5 @@
+@import '../core/variables';
+
 .header {
   $header: &;
 
@@ -23,11 +25,32 @@
 }
 
 .main {
+  align-items: stretch;
   display: flex;
   flex-grow: 1;
-  align-items: stretch;
 
   > * {
     flex-grow: 1;
+  }
+
+  &__loader {
+    animation: spin 2s linear infinite;
+    border: 12px solid $orange; 
+    border-top: 12px solid $blue-light; 
+    border-radius: 50%;
+    display: inline-block;
+    height: 75px;
+    margin-top:12px;
+    width: 75px;
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    &__container {
+      padding: 32px;
+      text-align: center;
+    }
   }
 }

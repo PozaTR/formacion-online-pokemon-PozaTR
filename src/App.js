@@ -34,6 +34,9 @@ class App extends React.Component {
 
   getPageInfo(pathname) {
     if(pathname === '/') {
+      this.setState({
+        isLoading: true
+      })
       fetchPokemons()
       .then(pokemons => {
         const pokemonsArray = pokemons.results.map(pokemon => {
@@ -54,12 +57,17 @@ class App extends React.Component {
         })
       })
     } else {
-      const positionPokeId = pathname.lastIndexOf('/') + 1
-      const pokemonId = pathname.substring(positionPokeId)
+      const positionPokeId = pathname.lastIndexOf('/') + 1;
+      const pokemonId = pathname.substring(positionPokeId);
+      this.setState({
+        isLoading: true,
+        pokemonDetail: {}
+      })
       fetchPokemon(pokemonId)
         .then(pokemon => {
           this.setState({
-            pokemonDetail: pokemon
+            pokemonDetail: pokemon,
+            isLoading: false
           })
         })
     }
@@ -83,20 +91,25 @@ class App extends React.Component {
           <img className="header__logo" src={logo} alt="logo pokemon"/>
         </header>
         <main className="main">
-          <Switch >
-            <Route exact path="/" render={RouterProps => (
-              <div>
-                <Search match={RouterProps.match} getPokemon={this.getPokemon} />
-                <Pokemons match={RouterProps.match} pokemons={pokemons} findPokemon={findPokemon} isLoading={isLoading}/>
+          {isLoading 
+            ? <div className="main__loader__container">
+                <p className="main__loader__message">Loading</p>
+                <div className="main__loader"></div>
               </div>
-             )}>
-            </Route>
-            <Route path="/detail/:pokemonId" render={RouterProps => (
-              <PokemonDetail match={RouterProps.match} pokemon={pokemonDetail}/>
-            )}>
-            </Route>
-            
-          </Switch>
+            : <Switch >
+              <Route exact path="/" render={RouterProps => (
+                <div>
+                  <Search match={RouterProps.match} getPokemon={this.getPokemon} />
+                  <Pokemons match={RouterProps.match} pokemons={pokemons} findPokemon={findPokemon} />
+                </div>
+              )}>
+              </Route>
+              <Route path="/detail/:pokemonId" render={RouterProps => (
+                <PokemonDetail match={RouterProps.match} pokemon={pokemonDetail}/>
+              )}>
+              </Route>
+            </Switch>
+          }
         </main>
       </>
     );

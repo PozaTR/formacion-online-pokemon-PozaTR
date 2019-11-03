@@ -6,14 +6,14 @@ import '../styles/components/pokemons.scss';
 
 
 const Pokemons = (props) => {
-  const { pokemons, findPokemon, isLoading } = props;
+  const { pokemons, findPokemon } = props;
   const pokemonsFilter = pokemons.filter(myPokemon => myPokemon.name.toUpperCase().includes(findPokemon.toUpperCase()));
   return (
       <ul className="pokemons__list">
           {pokemonsFilter.map((pokemon) =>
             <li key={`pokemon-${pokemon.name}`} >
               <Link className="main__link" to={`/detail/${pokemon.id}`}>
-                <Pokemon pokemon={pokemon} isLoading={isLoading}/>
+                <Pokemon pokemon={pokemon} />
               </Link>
             </li>
           )}

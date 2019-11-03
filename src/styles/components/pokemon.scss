@@ -65,20 +65,4 @@
     padding: 6px;
     text-transform: capitalize;
   }
-
-  &__loader {
-    animation: spin 2s linear infinite;
-    border: 12px solid $orange; 
-    border-top: 12px solid $blue-light; 
-    border-radius: 50%;
-    display: inline-block;
-    height: 75px;
-    margin-top:12px;
-    width: 75px;
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-      }
-  }
 }
